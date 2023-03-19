@@ -1,0 +1,196 @@
+
+<html>
+   <head >
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <img src="logo.png" width="100%">
+       <style>
+           
+           
+       </style>
+   </head>
+    <title>ONE PIECE</title>
+    <body onload="load()" >   
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <style>
+            * {
+            background: transparent;
+            font-family: fantasy;
+            color: #ffffff;
+            
+           
+           ;
+            }
+            
+            button{
+                background: #ff152a;
+                border-bottom-color: #ff15d2    ;
+            }
+            body{
+               background-image: url('background.jpeg');
+              
+               height: 100%;
+               width: 100%;
+            }
+            
+                
+            
+        </style>   
+        <h1>DONT SAVE!</h1>
+        <button onclick="rb()">REBIRTH</button>
+        <br>
+        <p>Level↓</p>
+        <p id="level">1</p>
+        <p id="exp"></p>
+       <p id="expneeded"></p>
+       <button onclick="lvlup()">LEVEL UP</button> <p>--------------------------------------------------------------------</p>
+        <p>money↓</p>
+        <p id="Cash"></p>
+        <p>--------------------------------------------------------------------</p>
+        <img src="fruit.jpeg" width="20%">
+        <p id="fruit">no one</p>
+        <button onclick="fight()">Fight</button>
+        --------------------------------------------
+        <button onclick="shop()" id="shop">Shop</button>
+        <button onclick="leaveshop()" id="ls">back</button>
+        <br>
+        <button id="shopframe()" onclick="lf()">LEOPARD FRUIT</button>
+        <button id="shopframe2()" onclick="kf()">KILO FRUIT</button>
+        <button id="shopframe3()" onclick="ggf()">GUM GUM FRUIT</button>
+        <button id="shopframe4()" onclick="pf()">PHEONIX FRUIT</button>
+    </body>
+</html>
+<script>
+  
+    var level = 1;
+    var exp = 0;
+    var cash = 100000000;
+    var expneeded = 200;
+    var fruit = "none";
+    var fruitdamage = 0;
+    var rebirth = 0;
+    
+    function fight(){
+        cash = cash +level *10  +fruitdamage +rebirth *100;
+        
+        exp = exp +level +fruitdamage +rebirth *100; document.getElementById("Cash").innerHTML = cash;
+        document.getElementById("Cash").innerHTML = cash;
+        document.getElementById("exp").innerHTML = exp;
+    }
+    
+    function load(){
+        document.getElementById("Cash").innerHTML = cash;
+         document.getElementById("expneeded").innerHTML = expneeded;
+         document.getElementById("exp").innerHTML = exp;
+         document.getElementById("shopframe()").style.visibility="hidden";
+        document.getElementById("shopframe2()").style.visibility="hidden";
+        document.getElementById("shopframe3()").style.visibility="hidden";
+        document.getElementById("shopframe4()").style.visibility="hidden";
+         document.getElementById("ls").style.visibility="hidden";
+         document.getElementById("fruit").innerHTML = fruit;
+    }
+       function lvlup(){
+   if(exp>=expneeded) {
+       exp = 0;
+       expneeded = expneeded *1.2;
+       level = level +1;
+       }
+       document.getElementById("exp").innerHTML = exp;
+       document.getElementById("expneeded").innerHTML = expneeded;
+       document.getElementById("level").innerHTML = level;
+     }   
+function shop(){
+    document.getElementById("shopframe()").style.visibility="visible";
+    document.getElementById("shopframe3()").style.visibility="visible";
+    document.getElementById("shopframe2()").style.visibility="visible";
+    document.getElementById("shopframe4()").style.visibility="visible";
+    document.getElementById("shop").style.visibility="hidden";
+    document.getElementById("ls").style.visibility="visible";
+}
+function leaveshop(){
+    document.getElementById("shopframe()").style.visibility="hidden";
+    document.getElementById("shopframe2()").style.visibility="hidden";
+    document.getElementById("shopframe3()").style.visibility="hidden";
+    document.getElementById("shopframe4()").style.visibility="hidden";
+    document.getElementById("shop").style.visibility="visible";
+document.getElementById("ls").style.visibility="hidden";
+}
+
+function lf(){
+    if(cash>=1000000) {
+        cash = cash -1000000;
+       document.getElementById("Cash").innerHTML = cash;
+       
+       fruit = "leopard";
+      
+      fruitdamage = 200; document.getElementById("fruit").innerHTML = fruit;
+
+      
+    }else {
+        alert("need 1000000 coins")
+        
+    }
+}
+function kf(){
+    if(cash>=10000) {
+        cash = cash -10000;
+       document.getElementById("Cash").innerHTML = cash;
+       
+       fruit = "Kilo";
+      
+      fruitdamage = 10; document.getElementById("fruit").innerHTML = fruit;
+
+      
+    }else {
+        alert("need 10,000 coins")
+        
+    }
+}
+function ggf(){
+    if(cash>=50000) {
+        cash = cash -50000;
+       document.getElementById("Cash").innerHTML = cash;
+       
+       fruit = "Gum Gum";
+      
+      fruitdamage = 50; document.getElementById("fruit").innerHTML = fruit;
+
+      
+    }else {
+        alert("need 50,000 coins")
+        
+    }
+}
+function pf(){
+    if(cash>=500000) {
+        cash = cash -500000;
+       document.getElementById("Cash").innerHTML = cash;
+       
+       fruit = "pheonix";
+      
+      fruitdamage = 150; document.getElementById("fruit").innerHTML = fruit;
+
+      
+    }else {
+        alert("need 500,000 coins")
+        
+    }
+}
+function rb(){
+    if (cash >= 10000000) {
+        cash = 0;
+        exp = 0;
+        expneeded = 200;
+        fruit = "none";
+        level = 1;
+        rebirth = rebirth +1;
+        document.getElementById("cash").innerHTML = cash;
+        document.getElementById("exp").innerHTML = exp;
+        document.getElementById("expneeded").innerHTML = expneeded;
+        document.getElementById("level").innerHTML = level;
+        document.getElementById("fruit").innerHTML = fruit;
+    }else {
+        alert("need 10m to rebirth")
+    }
+}
+
+</script>
